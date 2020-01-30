@@ -1,16 +1,28 @@
 * {
     box-sizing: border-box;
+  }
+
+  body {
     margin: 0;
     padding: 0;
-    border-radius: 1%;
+  }
+
+  header {
+    margin: 30px;
+    border: solid black 1px;
+    text-align: center;
   }
 
   .quiz {
-    padding-top: 30px;
+    display: flex;
     text-align: center;
     margin: 30px;
     background-color: gray;
-    min-width: 400px;
-    min-height: 200px;
+    border-radius: 5px;
+  }
+
+  .inner-quiz-box {
+    background-color: blue;
+    margin: 10px;
     border-radius: 5px;
   }
