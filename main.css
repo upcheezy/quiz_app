@@ -3,12 +3,14 @@
   }
 
   body {
-    margin: 0;
+    /* margin: 0; */
+    margin-left: 10px;
+    margin-right: 10px;
     padding: 0;
   }
 
   header {
-    margin: 30px;
+    margin: 10px;
     border: solid black 1px;
     text-align: center;
   }
@@ -16,10 +18,17 @@
   .quiz {
     display: flex;
     text-align: center;
-    margin-left: 30px;
-    margin-right: 30px;
     background-color: gray;
     border-radius: 5px;
+  }
+
+  main {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #quiz-logo {
+    display: none;
   }
 
   .inner-quiz-box {
@@ -33,10 +42,32 @@
     border: solid black 1px;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 0;
+    /* margin: 0; */
   }
 
   .score-keeper {
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  @media screen and (min-width: 600px) {
+    .quiz {
+      margin-left: 5px;
+    }
+
+    #quiz-logo {
+      display: unset;
+    }
+
+    main {
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    main {
+      display: flex;
+    }
   }
