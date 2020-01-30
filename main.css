@@ -16,7 +16,8 @@
   .quiz {
     display: flex;
     text-align: center;
-    margin: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
     background-color: gray;
     border-radius: 5px;
   }
@@ -25,4 +26,17 @@
     background-color: blue;
     margin: 10px;
     border-radius: 5px;
+  }
+
+  .image-container {
+    display: flex;
+    border: solid black 1px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+  }
+
+  .score-keeper {
+    margin-left: 30px;
+    margin-right: 30px;
   }
