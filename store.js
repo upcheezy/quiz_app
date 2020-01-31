@@ -7,96 +7,104 @@ const STORE = [
             'Europe',
             'North America',
             'Australia'
-        ]
+        ],
+        answer: 'Europe'
     },
     // two
     {
-        question: 'Which continent includes the Jutland and Iberian Peninsulas?',
+        question: 'In 1971, the British government ended its protectorate in the Trucial States. These states form what present-day country on the Persian Gulf?',
         options: [
-            'Asia',
-            'Europe',
-            'North America',
-            'Australia'
-        ]
+            'The United Arab Emirates',
+            'Saudi Arabia',
+            'Iraq',
+            'Afghanistan'
+        ],
+        answer: 'The United Arab Emirates'
     },
     // three
     {
-        question: 'Which continent includes the Jutland and Iberian Peninsulas?',
+        question: 'Sikkim, a region between Nepal and Bhutan, is part of what country?',
         options: [
-            'Asia',
-            'Europe',
-            'North America',
-            'Australia'
-        ]
+            'Pakistan',
+            'Myanmar',
+            'Bangladesh',
+            'India'
+        ],
+        answer: 'India'
     },
     // four
     {
-        question: 'Which continent includes the Jutland and Iberian Peninsulas?',
+        question: 'The Sea of Azov borders Ukraine and what other country?',
         options: [
-            'Asia',
-            'Europe',
-            'North America',
-            'Australia'
-        ]
+            'Russia',
+            'Georgia',
+            'Moldova',
+            'Turkey'
+        ],
+        answer: 'Russia'
     },
     // five
     {
-        question: 'Which continent includes the Jutland and Iberian Peninsulas?',
+        question: 'People in the most populous Scandinavian country celebrate a festival of light called St. Lucia Day to mark the start of the Christmas season. Name this country.',
         options: [
-            'Asia',
-            'Europe',
-            'North America',
-            'Australia'
-        ]
+            'Denmark',
+            'Germany',
+            'Sweden',
+            'Norway'
+        ],
+        answer: 'Sweden'
     },
     // six
     {
-        question: 'Which continent includes the Jutland and Iberian Peninsulas?',
+        question: 'Which capital city, located about 20 miles from the Adriatic Sea, is a major industrial center for Albania?',
         options: [
-            'Asia',
-            'Europe',
-            'North America',
-            'Australia'
-        ]
+            'Berat',
+            'Moscow',
+            'Tirana',
+            'Golem'
+        ],
+        answer: 'Tirana'
     },
     // seven
     {
-        question: 'Which continent includes the Jutland and Iberian Peninsulas?',
+        question: 'Iqaluit, which means “place of fish,” is the biggest community on the largest island in the Arctic Archipelago. Name this island.',
         options: [
-            'Asia',
-            'Europe',
-            'North America',
-            'Australia'
-        ]
+            'Devon Island',
+            'Baffin Island',
+            'Craig Island',
+            'Amund Ringnes Island'
+        ],
+        answer: 'Baffin Island'
     },
     // eight
     {
-        question: 'Which continent includes the Jutland and Iberian Peninsulas?',
+        question: 'Hiva Oa, one of the main islands in the Marquesas Islands, belongs to what European country?',
         options: [
-            'Asia',
-            'Europe',
-            'North America',
-            'Australia'
-        ]
+            'France',
+            'England',
+            'Spain',
+            'Portugal'
+        ],
+        answer: 'France'
     },
     // nine
     {
-        question: 'Which continent includes the Jutland and Iberian Peninsulas?',
+        question: 'Cenotes, or sinkholes, such as those found on the Yucatan Peninsula are associated with which rock—basalt or limestone?',
         options: [
-            'Asia',
-            'Europe',
-            'North America',
-            'Australia'
-        ]
+            'Rock-basalt',
+            'Limestone'
+        ],
+        answer: 'Limestone'
     },
     // ten
     {
-        question: 'Which continent includes the Jutland and Iberian Peninsulas?',
+        question: 'Because Earth bulges at the Equator, the point that is farthest from Earth’s center is the summit of a peak in Ecuador. Name this peak.',
         options: [
-            'Asia',
-            'Europe',
-            'North America',
-            'Australia'
-        ]
+            'Mt Bona',
+            'Denali',
+            'Mt Everest',
+            'Chimborazo'
+        ],
+        answer: 'Chimborazo'
     }
 ]
