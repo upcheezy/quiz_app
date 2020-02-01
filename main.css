@@ -67,6 +67,17 @@
   @media screen and (min-width: 600px) {
     .quiz {
       margin-left: 5px;
+      max-width: 550px;
+      min-width: 550px;
+      max-height: 325px;
+      min-height: 325px;
+    }
+
+    .inner-quiz-box {
+      max-width: 525px;
+      min-width: 525px;
+      max-height: 245px;
+      min-height: 245px;
     }
 
     #quiz-logo {
