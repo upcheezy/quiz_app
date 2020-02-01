@@ -70,8 +70,7 @@ function updateQuestion(questionNumber, item) {
 }
 
 function determineCorrectness() {
-    console.log('inside determineCorrectness')
-    $('#js-questions').submit(function(event) {
+    $('body').submit('#js-questions', function(event) {
         event.preventDefault();
         let currentQues = STORE.currentQuestion;
         let selectedOption = $("input[name=options]:checked").val();
