@@ -1,6 +1,8 @@
 function getStarted() {
     $('.quiz').on('click', '.startButton', function(event) {
         // alert('you just clicked the start button')
+        let selectedOption = $("input[name=option]:checked").val();
+        console.log(selectedOption);
         renderAQuestion();
     })
 }
@@ -25,6 +27,7 @@ function renderAQuestion() {
         `);
     // console.log(questionHtml);
   $(".inner-quiz-box").html(questionHtml);
+  
 //   determineCorrectness(question);
 }
 
@@ -34,14 +37,18 @@ function nextQuestion() {
     let questionNumber = 1
     $('.quiz').on('submit', '#js-questions', function(event) {
         event.preventDefault();
-        // alert('you just clicked the next button')
         let item = STORE[questionNumber];
+        let selectedOption = $("input[name=option]:checked").val();
+        // alert('you just clicked the next button')
+        // console.log(selectedOption);
+        console.log(item);
         questionNumber += 1;
         if (questionNumber > 10) {
             alert("sorry, that's the end of the quiz");
             getStarted();
         } else {
             $(".inner-quiz-box").html(updateQuestion(questionNumber, item));
+            determineCorrectness(selectedOption, item);
         }
     })
 }
@@ -62,21 +69,22 @@ function updateQuestion(questionNumber, item) {
         `;
 }
 
-function determineCorrectness() {
-    $('.quiz').submit('#js-questions', function(event) {
-        event.preventDefault();
-        console.log(event);
-        // let currentQues = item.answer;
-        let selectedOption = $("input[name=option]:checked").val();
-        // console.log(currentQues);
+function determineCorrectness(selectedOption, item) {
+        let currentQues = item.answer;
+        // let selectedOption = $("input[name=option]:checked").val();
+        console.log(currentQues);
         console.log(selectedOption);
-    })
+        if (currentQues === selectedOption) {
+            alert('you got the right answer');
+        } else {
+            alert('sorry, not right')
+        }
 }
 
 function handleQuizApp() {
     getStarted();
     nextQuestion();
-    determineCorrectness()
+    // determineCorrectness()
 }
 
 $(handleQuizApp());
