@@ -20,30 +20,22 @@ function renderAQuestion() {
                 <input type="radio" name="gender" value="option3">${question.options[2]}<br>
                 <input type="radio" name="gender" value="option4">${question.options[3]}
             </fieldset>
+            <button type="submit">Next</button>
         </form>
-        <button type="submit" class="questionButton button">Next</button>`);
+        `);
     // console.log(questionHtml);
   $(".inner-quiz-box").html(questionHtml);
-}
-
-// console.log(STORE[0]);
-
-function addQuestionNumber() {
-    for (let i=0; i < STORE.length; i++) {
-        // console.log(i);
-        STORE[i].currentQuestion = i
-    }
-
-    // console.log(STORE)
+//   determineCorrectness(question);
 }
 
 // this will handle looping through the store object and adding the next question each time
 function nextQuestion() {
     // STORE.score = 0;
     let questionNumber = 1
-    $('.quiz').on('click', '.questionButton', function(event) {
+    $('.quiz').on('submit', '#js-questions', function(event) {
+        event.preventDefault();
         // alert('you just clicked the next button')
-        item = STORE[questionNumber];
+        let item = STORE[questionNumber];
         questionNumber += 1;
         if (questionNumber > 10) {
             alert("sorry, that's the end of the quiz");
@@ -60,30 +52,31 @@ function updateQuestion(questionNumber, item) {
         <form id='js-questions'>
             <fieldset>
               <legend class="questionText">${item.question}</legend>
-              <input type="radio" name="gender" value="option1" checked>${item.options[0]}<br>
-                <input type="radio" name="gender" value="option2">${item.options[1]}<br>
-                <input type="radio" name="gender" value="option3">${item.options[2]}<br>
-                <input type="radio" name="gender" value="option4">${item.options[3]}
+              <input type="radio" name="option" value="${item.options[0]}" checked>${item.options[0]}<br>
+                <input type="radio" name="option" value="${item.options[1]}">${item.options[1]}<br>
+                <input type="radio" name="option" value="${item.options[2]}">${item.options[2]}<br>
+                <input type="radio" name="option" value="${item.options[3]}">${item.options[3]}
             </fieldset>
+            <button type="submit" class="questionButton button">Next</button>
         </form>
-        <button type="submit" class="questionButton button">Next</button>`;
+        `;
 }
 
 function determineCorrectness() {
-    $('body').submit('#js-questions', function(event) {
+    $('.quiz').submit('#js-questions', function(event) {
         event.preventDefault();
-        console.log('im inside')
-        let currentQues = STORE.currentQuestion;
-        let selectedOption = $("input[name=options]:checked").val();
-        console.log(currentQues);
+        console.log(event);
+        // let currentQues = item.answer;
+        let selectedOption = $("input[name=option]:checked").val();
+        // console.log(currentQues);
+        console.log(selectedOption);
     })
 }
 
 function handleQuizApp() {
     getStarted();
-    addQuestionNumber();
     nextQuestion();
-    determineCorrectness();
+    determineCorrectness()
 }
 
 $(handleQuizApp());
