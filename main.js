@@ -34,11 +34,12 @@ function renderAQuestion() {
 // this will handle looping through the store object and adding the next question each time
 function nextQuestion() {
     // STORE.score = 0;
-    let questionNumber = 1
+    let questionNumber = 0
     $('.quiz').on('submit', '#js-questions', function(event) {
         event.preventDefault();
         let item = STORE[questionNumber];
         let selectedOption = $("input[name=option]:checked").val();
+        determineCorrectness(selectedOption, item);
         // alert('you just clicked the next button')
         // console.log(selectedOption);
         console.log(item);
@@ -48,7 +49,6 @@ function nextQuestion() {
             getStarted();
         } else {
             $(".inner-quiz-box").html(updateQuestion(questionNumber, item));
-            determineCorrectness(selectedOption, item);
         }
     })
 }
@@ -70,15 +70,15 @@ function updateQuestion(questionNumber, item) {
 }
 
 function determineCorrectness(selectedOption, item) {
-        let currentQues = item.answer;
+        let currentAns = item.answer;
         // let selectedOption = $("input[name=option]:checked").val();
-        console.log(currentQues);
-        console.log(selectedOption);
-        if (currentQues === selectedOption) {
-            alert('you got the right answer');
-        } else {
-            alert('sorry, not right')
-        }
+        console.log('currentAns ' + currentAns);
+        console.log('selectedOption ' + selectedOption);
+        // if (currentQues === selectedOption) {
+        //     alert('you got the right answer');
+        // } else {
+        //     alert('sorry, not right')
+        // }
 }
 
 function handleQuizApp() {
