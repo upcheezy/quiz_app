@@ -1,90 +1,84 @@
 function getStarted() {
-    $('.quiz').on('click', '.startButton', function(event) {
-        // alert('you just clicked the start button')
-        let selectedOption = $("input[name=option]:checked").val();
-        console.log(selectedOption);
-        renderAQuestion();
-    })
-}
-
-/*displays the question*/
-function renderAQuestion() {
-    let question = STORE[0];
-    // console.log(question.question);
-    // updateQuestionAndScore();
-    const questionHtml = $(`
-    <h3>Question 1</h3>
-        <form id='js-questions'>
-            <fieldset>
-              <legend class="questionText">${question.question}</legend>
-              <input type="radio" name="gender" value="option1" checked>${question.options[0]}<br>
-                <input type="radio" name="gender" value="option2">${question.options[1]}<br>
-                <input type="radio" name="gender" value="option3">${question.options[2]}<br>
-                <input type="radio" name="gender" value="option4">${question.options[3]}
-            </fieldset>
-            <button type="submit">Next</button>
-        </form>
-        `);
-    // console.log(questionHtml);
-  $(".inner-quiz-box").html(questionHtml);
-  
-//   determineCorrectness(question);
+  $('.quiz').on('click', '.startButton', function (event) {
+    renderAQuestion(0);
+  })
 }
 
 // this will handle looping through the store object and adding the next question each time
 function nextQuestion() {
-    // STORE.score = 0;
-    let questionNumber = 0
-    $('.quiz').on('submit', '#js-questions', function(event) {
-        event.preventDefault();
-        let item = STORE[questionNumber];
-        let selectedOption = $("input[name=option]:checked").val();
-        determineCorrectness(selectedOption, item);
-        // alert('you just clicked the next button')
-        // console.log(selectedOption);
-        console.log(item);
-        questionNumber += 1;
-        if (questionNumber > 10) {
-            alert("sorry, that's the end of the quiz");
-            getStarted();
-        } else {
-            $(".inner-quiz-box").html(updateQuestion(questionNumber, item));
-        }
-    })
+  let questionNumber = 0
+  $('.quiz').on('submit', '#js-questions', function (event) {
+    event.preventDefault();
+
+    let item = STORE[questionNumber];
+    let selectedOption = $("input[name=option]:checked").val();
+
+    questionNumber += 1;
+    if (questionNumber > 9) {
+      alert("sorry, that's the end of the quiz");
+      // getStarted();
+    } else {
+      determineCorrectness(selectedOption, item);
+      $(".inner-quiz-box").html(renderAQuestion(questionNumber));
+    }
+  })
 }
 
-function updateQuestion(questionNumber, item) {
-    return `
-    <h3>Question ${questionNumber}</h3>
-        <form id='js-questions'>
-            <fieldset>
-              <legend class="questionText">${item.question}</legend>
-              <input type="radio" name="option" value="${item.options[0]}" checked>${item.options[0]}<br>
-                <input type="radio" name="option" value="${item.options[1]}">${item.options[1]}<br>
-                <input type="radio" name="option" value="${item.options[2]}">${item.options[2]}<br>
-                <input type="radio" name="option" value="${item.options[3]}">${item.options[3]}
-            </fieldset>
-            <button type="submit" class="questionButton button">Next</button>
-        </form>
-        `;
+/*displays the question*/
+function renderAQuestion(questionNum) {
+  let question = STORE[questionNum];
+  const questionHtml = $(`
+      <h3>Question ${questionNum + 1}</h3>
+          <form id='js-questions'>
+              <fieldset>
+                <legend class="questionText">${question.question}</legend>
+                  <input type="radio" name="option" value="${question.options[0]}" checked>${question.options[0]}<br>
+                  <input type="radio" name="option" value="${question.options[1]}">${question.options[1]}<br>
+                  <input type="radio" name="option" value="${question.options[2]}">${question.options[2]}<br>
+                  <input type="radio" name="option" value="${question.options[3]}">${question.options[3]}
+              </fieldset>
+              <button type="submit">Next</button>
+          </form>
+          `);
+
+  $(".inner-quiz-box").html(questionHtml);
 }
 
 function determineCorrectness(selectedOption, item) {
-        let currentAns = item.answer;
-        // let selectedOption = $("input[name=option]:checked").val();
-        console.log('currentAns ' + currentAns);
-        console.log('selectedOption ' + selectedOption);
-        // if (currentQues === selectedOption) {
-        //     alert('you got the right answer');
-        // } else {
-        //     alert('sorry, not right')
-        // }
+  let currentAns = item.answer;
+  console.log(currentAns);
+  console.log(selectedOption);
+  // if (currentQues === selectedOption) {
+  //   renderFeedback(selectedOption);
+  // } else {
+  //   handleIncorrect();
+  // }
+
+  const isCorrect = currentAns === selectedOption ? true : false;
+  console.log(isCorrect);
+  renderFeedback(isCorrect, currentAns);
+}
+
+function renderFeedback(isCorrect, currentAns) {
+  // HTML portion of feedback reliant on correctness 
+  const correctnessHTML = isCorrect ? `Inccorrect, correct answer is ${currentAns}` : `Correct!`
+  console.log(correctnessHTML);
+
+  // incorporate that into the general HTML feedback 
+  const feedbackHTML = `
+      <section>
+        <p>${correctnessHTML}</p>
+        <button>next</button>
+      </section>
+    `
+
+  // render the HTML
+  $('.inner-quiz-box').html(feedbackHTML)
 }
 
 function handleQuizApp() {
-    getStarted();
-    nextQuestion();
-    // determineCorrectness()
+  getStarted();
+  nextQuestion();
 }
 
 $(handleQuizApp());
