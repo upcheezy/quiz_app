@@ -19,7 +19,7 @@ function nextQuestion() {
       // need to create a new function for this section to handle the last question
       // as well as a scoring page
       console.log(questionNumber)
-      determineFinalCorrectness(selectedOption, item);
+      determineFinalCorrectness(selectedOption, item, questionNumber);
     } else {
       $(".inner-quiz-box").html(renderAQuestion(questionNumber));
       determineCorrectness(selectedOption, item, questionNumber);
