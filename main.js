@@ -15,12 +15,11 @@ function nextQuestion() {
     let item = STORE[questionNumber];
     let selectedOption = $("input[name=option]:checked").val();
     console.log(questionNumber);
-    if (questionNumber > 8) {
+    if (questionNumber === 9) {
       // need to create a new function for this section to handle the last question
       // as well as a scoring page
-      console.log('inside')
+      console.log(questionNumber)
       determineFinalCorrectness(selectedOption, item);
-      // questionNumber = 0;
     } else {
       $(".inner-quiz-box").html(renderAQuestion(questionNumber));
       determineCorrectness(selectedOption, item, questionNumber);
@@ -143,7 +142,7 @@ function finalPage() {
   perc = (score/10)*100
   const questionHtml = $(`
       <h3>Thanks for testing your geog skillz!</h3>
-      <p>Your score is ${score}/10!</p>
+      <p>Your score is ${score}/10</p>
       <p>That's ${perc}%!</p>
       <button type="button" class="startOverButton button">start over</button>
   `);
@@ -156,7 +155,7 @@ function returnToBeginning() {
     questionNumber = 0;
     score = 0;
     renderAQuestion(questionNumber);
-    // $(this).removeClass('far fa-plus-square').addClass('far fa-square');
+    $('.image-container li i').removeClass('far fa-plus-square fa-minus-square').addClass('far fa-square');
     // alert(questionNumber);
   })
 }

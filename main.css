@@ -100,15 +100,15 @@ i {
     margin-left: 5px;
     max-width: 550px;
     min-width: 550px;
-    max-height: 325px;
-    min-height: 325px;
+    max-height: 365px;
+    min-height: 365px;
   }
 
   .inner-quiz-box {
     max-width: 525px;
     min-width: 525px;
-    max-height: 245px;
-    min-height: 245px;
+    max-height: 275px;
+    min-height: 275px;
   }
 
   #quiz-logo {
@@ -129,21 +129,6 @@ i {
 @media screen and (min-width: 1000px) {
   main {
     display: flex;
-  }
-
-  .quiz {
-    margin-left: 5px;
-    max-width: 550px;
-    min-width: 550px;
-    max-height: 365px;
-    min-height: 365px;
-  }
-
-  .inner-quiz-box {
-    max-width: 525px;
-    min-width: 525px;
-    max-height: 275px;
-    min-height: 275px;
   }
 
   body {
