@@ -89,9 +89,11 @@ const STORE = [
     },
     // nine
     {
-        question: 'Cenotes, or sinkholes, such as those found on the Yucatan Peninsula are associated with which rock—basalt or limestone?',
+        question: 'Cenotes, or sinkholes, such as those found on the Yucatan Peninsula are associated with what type of sedimentary rock?',
         options: [
             'Rock-basalt',
+            'Quartz',
+            'Granite',
             'Limestone'
         ],
         answer: 'Limestone'

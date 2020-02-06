@@ -142,7 +142,7 @@ function continueFinalFeedback() {
 function finalPage() {
   perc = (score/10)*100
   const questionHtml = $(`
-      <h3>Thanks for testing you geog skillz!</h3>
+      <h3>Thanks for testing your geog skillz!</h3>
       <p>Your score is ${score}/10!</p>
       <p>That's ${perc}%!</p>
       <button type="button" class="startOverButton button">start over</button>
@@ -156,6 +156,7 @@ function returnToBeginning() {
     questionNumber = 0;
     score = 0;
     renderAQuestion(questionNumber);
+    // $(this).removeClass('far fa-plus-square').addClass('far fa-square');
     // alert(questionNumber);
   })
 }
